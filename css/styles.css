@@ -110,7 +110,6 @@ main{min-height:60vh}
 .ticker{display:grid;gap:10px;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .ticker-row{display:flex;width:max-content;gap:10px;animation:tick var(--dur,95s) linear infinite}
 .ticker-row.rev{animation-direction:reverse}
-.ticker:hover .ticker-row{animation-play-state:paused}
 .ticker-row span{white-space:nowrap;font-size:.82rem;font-weight:500;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
