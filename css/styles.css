@@ -107,10 +107,10 @@ main{min-height:60vh}
 .intro-stats span{font-size:.9rem;color:var(--muted)}
 @media (max-width:800px){.intro-top{grid-template-columns:minmax(0,1fr)}.intro-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-stats div{gap:4px;padding:14px 16px}.intro-stats span{font-size:.78rem;line-height:1.3}}
 @media (max-width:420px){.intro-stats b{font-size:1.7rem}}
-.ticker{display:grid;gap:10px;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.ticker-row{display:flex;width:max-content;gap:10px;animation:tick var(--dur,95s) linear infinite}
+.ticker{display:grid;gap:10px;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);pointer-events:none}
+.ticker-row{display:flex;width:max-content;gap:10px;animation:tick var(--dur,95s) linear infinite !important;animation-play-state:running !important}
 .ticker-row.rev{animation-direction:reverse}
-.ticker-row span{white-space:nowrap;font-size:.82rem;font-weight:500;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.ticker-row span{white-space:nowrap;font-size:.82rem;font-weight:500;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);user-select:none}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
