@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gestión Empresarial UT Cancún</title>
+<meta name="description" content="Estadías profesionales, bolsa de trabajo y empresas vinculadas de la Universidad Tecnológica de Cancún.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="icon" type="image/png" href="img/logo-ut-cancun.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="bar"><div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Inicio, Gestión Empresarial UT Cancún">
+      <span class="chip"><img src="img/logo-ut-cancun.png" alt="UT Cancún · BIS Universities"></span>
+      <span class="dept">Gestión Empresarial<small>Vinculación · UT Cancún</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div></div>
+  <div class="navbar"><div class="wrap">
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#inicio" data-nav="inicio">Inicio</a>
+      <a href="#estadias" data-nav="estadias">Estadías</a>
+      <a href="#bolsa" data-nav="bolsa">Bolsa de trabajo</a>
+      <a href="#empresas" data-nav="empresas">Empresas vinculadas</a>
+      <a href="#contacto" data-nav="contacto">Contáctanos</a>
+    </nav>
+  </div></div>
+</header>
+
+<main id="main">
+
+<!-- ================= INICIO ================= -->
+<section class="view wrap" data-view="inicio">
+  <div class="intro rise" style="--i:0">
+    <div class="intro-top">
+      <div class="intro-copy">
+        <span class="eyebrow rise" style="--i:1">Empresas vinculadas · UT Cancún</span>
+        <h1 class="rise" style="--i:2">¿Ya conoces las empresas <em>vinculadas</em> con la universidad?</h1>
+        <p class="lead rise" style="--i:3">Son las empresas en las que puedes hacer tu estadía. Búscalas por nombre, giro, ubicación o división afín.</p>
+        <a class="btn btn-primary rise" style="--i:4" href="#empresas">Conócelas aquí <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="intro-stats rise" style="--i:4">
+        <div><b class="num" id="stEmp">0</b><span>empresas vinculadas</span></div>
+        <div><b class="num" id="stGiro">0</b><span>giros comerciales</span></div>
+      </div>
+    </div>
+    <div class="ticker rise" style="--i:5" aria-hidden="true"><div class="ticker-row" id="tick1"></div><div class="ticker-row rev" id="tick2" style="--dur:115s"></div></div>
+  </div>
+
+  <div class="section hero">
+    <div class="hero-copy">
+      <span class="eyebrow rise" style="--i:6">Departamento de Gestión Empresarial</span>
+      <h2 class="hero-title rise" style="--i:7">Tu camino a la vida <em>profesional</em> comienza aquí.</h2>
+      <p class="lead rise" style="--i:8">Te acompañamos en tu estadía profesional, te conectamos con empresas vinculadas y compartimos vacantes para estudiantes y egresados. Todo lo que necesitas consultar, en un solo lugar.</p>
+      <div class="actions rise" style="--i:9">
+        <a class="btn btn-primary" href="#estadias">Empieza tu estadía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#empresas">Ver empresas vinculadas</a>
+      </div>
+    </div>
+    <div class="route-card rise" style="--i:8" aria-label="Tu ruta de estadía en 10 pasos">
+      <span class="eyebrow">Enero – Abril 2027</span>
+      <h3>Tu ruta en 10 pasos</h3>
+      <svg class="route-svg" viewBox="0 0 400 236" role="img" aria-label="Inducción, empresa, carta, registro, entrega de carta, encuestas, documentos, evaluación, carta de liberación y entrega final">
+        <path class="track" d="M56 40 H360 Q385 40 385 65 V100 Q385 125 360 125 H40 Q14 125 14 151 V184 Q14 210 40 210 H360"/>
+        <path class="draw" d="M56 40 H360 Q385 40 385 65 V100 Q385 125 360 125 H40 Q14 125 14 151 V184 Q14 210 40 210 H360"/>
+        <g id="stops"></g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section rise" style="--i:4">
+    <div id="nextBox"></div>
+    <div class="period">
+      <div class="period-labels"><span>Periodo oficial de estadías</span><span class="num" id="periodTxt"></span></div>
+      <div class="period-bar"><i id="periodFill"></i></div>
+      <div class="period-labels num"><span>7 ene 2027 · inicia</span><span>16 abr 2027 · termina</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head rise" style="--i:5">
+      <span class="eyebrow">Qué encuentras aquí</span>
+      <h2>Elige por dónde empezar</h2>
+    </div>
+    <div class="grid g4">
+      <a class="door rise" style="--i:6" href="#estadias">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V8l8-4 8 4v11"/><path d="M9 19v-6h6v6"/></svg></span>
+        <h3>Estadías</h3><p>Qué es, modalidades, fechas del periodo y la agenda de actividades para descargar.</p>
+        <span class="go">Ver la ruta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="door rise" style="--i:7" href="#bolsa">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
+        <h3>Bolsa de trabajo</h3><p>Vacantes disponibles para estudiantes y egresados, y atención a tu caso particular.</p>
+        <span class="go">Ver vacantes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="door rise" style="--i:8" href="#empresas">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5l7-2v18M12 9h7v12"/><path d="M8 8h1M8 12h1M8 16h1M15 13h1M15 17h1"/></svg></span>
+        <h3>Empresas vinculadas</h3><p><span class="num" id="countDoor">+1,000</span> empresas con convenio. Filtra por giro, ubicación y división.</p>
+        <span class="go">Buscar empresa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="door rise" style="--i:9" href="#contacto">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
+        <h3>Contáctanos</h3><p>Correos, extensiones y canales de WhatsApp y Facebook para recibir avisos.</p>
+        <span class="go">Ver contactos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section rise" style="--i:10">
+    <div class="find">
+      <div class="building" aria-hidden="true"><div>D<small>Edificio</small></div></div>
+      <div>
+        <span class="eyebrow">¿Dónde encontrarnos?</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin-top:6px">Gestión Empresarial está en el Edificio D</h2>
+        <dl>
+          <dt>Horario</dt><dd class="num">Lunes a viernes, 8:00 a 18:00 h</dd>
+          <dt>Teléfono</dt><dd class="num"><a href="tel:+529988811900">(998) 881-1900</a>, ext. 1319 y 1141</dd>
+          <dt>Facebook</dt><dd><a href="https://www.facebook.com/EstadiaProfesionalUTCancun/" target="_blank" rel="noopener">Estadía profesional, UT Cancún</a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESTADÍAS ================= -->
+<section class="view wrap" data-view="estadias" hidden>
+  <div class="page-hero">
+    <span class="eyebrow rise" style="--i:0">Estadía profesional · Enero – Abril 2027</span>
+    <h1 class="rise" style="--i:1">Aquí empieza tu viaje en la vida profesional.</h1>
+    <p class="lead rise" style="--i:2">La estadía es tu práctica profesional: aplicas lo que aprendiste en el aula dentro de una empresa o dependencia real. Es el último paso antes de egresar, y no lo haces solo.</p>
+  </div>
+
+  <div class="section">
+    <div class="stats">
+      <div class="stat rise" style="--i:3"><b class="num">480 h</b><span>en total (licenciatura e ingeniería). TSU: 600 h</span></div>
+      <div class="stat rise" style="--i:4"><b class="num">8 h</b><span>jornada máxima diaria</span></div>
+      <div class="stat rise" style="--i:5"><b class="num">7 ene</b><span>inicia tu estadía</span></div>
+      <div class="stat wine rise" style="--i:6"><b class="num">16 abr</b><span>termina tu estadía</span></div>
+    </div>
+  </div>
+
+  <div class="section download rise" style="--i:7">
+    <div class="doc" aria-hidden="true"></div>
+    <div><h3>Agenda de Actividades de Estadía Profesional</h3><p>Los 10 pasos obligatorios, fechas, casos especiales y checklist del periodo enero–abril 2027.</p></div>
+    <a class="btn btn-primary" id="agendaBtn" href="docs/Agenda-Estadias-ENE-ABR-2027.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar agenda</a>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Elige tu modalidad</span><h2>Tres formas de hacer tu estadía</h2></div>
+    <div class="grid g3">
+      <div class="mode"><span class="k">01</span><h3>Estadía ordinaria</h3><p>En una empresa vinculada con convenio de colaboración con la UT Cancún.</p></div>
+      <div class="mode"><span class="k">02</span><h3>Movilidad nacional o internacional</h3><p>En una empresa de otro estado o de otro país. Tiene requisitos y fechas propias.</p></div>
+      <div class="mode alt"><span class="k">03</span><h3>Proyecto de investigación</h3><p>Incluye el Programa Delfín. Consulta los detalles con tu dirección de carrera.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Tu calendario</span><h2>La ruta, paso a paso</h2><p class="muted">Marcamos en verde lo que ya pasó y resaltamos el paso que sigue según la fecha de hoy.</p></div>
+    <div class="timeline" id="timeline"></div>
+    <p class="note">Si omites alguna de estas actividades, se registrará una sanción en tu expediente.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Tu seguimiento</span><h2>¿Ya cumpliste con todo?</h2><p class="muted">Marca cada actividad conforme la completes. Se guarda solo en este navegador.</p></div>
+    <div class="progress-row"><div class="period-bar"><i id="checkFill"></i></div><b class="num" id="checkTxt">0 de 11</b><button class="linkbtn" id="checkReset" type="button">Reiniciar</button></div>
+    <div class="check" id="checklist"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Formatos</span><h2>Lo que vas a necesitar</h2></div>
+    <div class="forms">
+      <a class="form-link" href="http://201.134.180.251:8080/estadiasut/" target="_blank" rel="noopener"><span>Carta de presentación<small>Paso 3 · del 11 de diciembre 2026 al 8 de enero 2027</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="form-link" href="http://201.134.180.251:8080/encuestas/index.php/221695?lang=es-MX" target="_blank" rel="noopener"><span>Registro de estadía<small>Paso 4 · del 7 al 22 de enero</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="form-link" href="https://utcancun.edu.mx/wp-content/uploads/2026/07/Carta-de-Liberacio%CC%81n-de-Estadias-Profesionales-3.doc" target="_blank" rel="noopener"><span>Carta de liberación (Word)<small>Paso 9 · pídela a tu empresa antes del 31 de marzo</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="form-link" href="https://utcancun.edu.mx/wp-content/uploads/2025/08/MON-I02-F01-Solicitud-de-Movilidad-Nacional.docx" target="_blank" rel="noopener"><span>Solicitud de Movilidad Nacional (Word)<small>Estadía foránea · entrégala antes del 18 de enero</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">¿Puedes exentar la memoria?</span><h2>Tres casos en los que aplica</h2><p class="muted">Aun si exentas la memoria, debes cumplir todas las actividades de la agenda.</p></div>
+    <div class="grid g3">
+      <div class="card"><h3 style="font-size:1.1rem">Certificación</h3><p class="muted" style="margin-top:6px">Verifica si aplica en tu división.</p></div>
+      <div class="card"><h3 style="font-size:1.1rem">Excelencia académica</h3><p class="muted" style="margin-top:6px">Calificación mínima de 9.0.</p></div>
+      <div class="card"><h3 style="font-size:1.1rem">Experiencia laboral</h3><p class="muted" style="margin-top:6px">Mínimo 2 años y cubrir los requisitos.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Casos especiales</span><h2>Si tu estadía no es la ordinaria</h2></div>
+    <div class="grid" style="gap:10px">
+      <details class="faq"><summary>¿Necesitas cambiar de empresa?</summary><div class="body"><ul>
+        <li>Solo se permite 1 cambio, con fecha límite el <b>18 de enero</b>.</li>
+        <li>La nueva empresa debe estar vinculada y tus horas inician desde cero.</li>
+        <li>Registra los nuevos datos y entrega la carta de presentación firmada y sellada por la nueva empresa (repite los pasos 3, 4 y 5).</li>
+        <li>Fuera de fecha, Gestión Empresarial evalúa tus motivos y tu dirección de carrera emite el memorándum.</li></ul></div></details>
+      <details class="faq"><summary>¿Harás tu estadía en otro estado? (Movilidad Nacional)</summary><div class="body"><p>Aplica cuando te quedas a residir en la ciudad donde está la empresa.</p><ul>
+        <li><b>Antes de iniciar:</b> verifica que la empresa tenga convenio; si no, tramítalo.</li>
+        <li><b>Antes de iniciar:</b> llena la Solicitud de Movilidad Nacional y entrégala en Gestión Empresarial a más tardar el <b>18 de enero</b>.</li>
+        <li><b>Por correo:</b> envía tu carta de presentación cuando la empresa la firme y selle.</li>
+        <li><b>Al finalizar:</b> entrega en persona tu carta de presentación original, carta de liberación (con copias de ambas) y 2 fotos tamaño infantil.</li></ul></div></details>
+      <details class="faq"><summary>¿Te vas de Movilidad Internacional?</summary><div class="body"><ul>
+        <li>Verifica que Movilidad Internacional envíe a Gestión Empresarial el memorándum de aviso de inicio (con tus datos, lugar y periodo).</li>
+        <li>Realiza los pasos 1, 4 y 7.</li>
+        <li>Verifica que la Subdirección de Proyectos de Vinculación e Internacionalización (<a href="mailto:internacional@utcancun.edu.mx">internacional@utcancun.edu.mx</a>) envíe el memorándum de finalización.</li>
+        <li>Al regresar, entrega en persona ese memorándum y 2 fotos tamaño infantil. Tienes 10 días hábiles después de tu llegada a Cancún.</li></ul></div></details>
+      <details class="faq"><summary>Requisitos de las 2 fotos tamaño infantil</summary><div class="body"><ul>
+        <li>Blanco y negro, papel mate autoadherible, con retoque y fondo blanco.</li>
+        <li>Cara descubierta, camisa o blusa blanca y saco gris claro.</li>
+        <li>Al reverso de ambas: nombre, matrícula y carrera.</li></ul></div></details>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">¿A quién acudo?</span><h2>Evita vueltas</h2><p class="muted">Identifica si tu trámite es académico o de Gestión Empresarial.</p></div>
+    <div class="split">
+      <div class="who acad"><h3>Académico</h3><p class="sub">Tu dirección de carrera o división</p><ol>
+        <li>Asignación de asesor académico</li><li>Evaluación académica</li><li>Cédula de aprobación de memoria</li><li>Registro de tema de memoria</li><li>Modalidad de estadía profesional</li></ol></div>
+      <div class="who ge"><h3>Gestión Empresarial</h3><p class="sub">Edificio D</p><ol>
+        <li>Elegir empresa vinculada</li><li>Entrega de carta de presentación</li><li>Registro de la estadía profesional</li><li>Entrega de la carta de liberación</li><li>Algún percance con tu asesor empresarial o empresa</li></ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOLSA ================= -->
+<section class="view wrap" data-view="bolsa" hidden>
+  <div class="page-hero">
+    <span class="eyebrow rise" style="--i:0">Bolsa de trabajo</span>
+    <h1 class="rise" style="--i:1">Tu siguiente oportunidad puede estar aquí.</h1>
+    <p class="lead rise" style="--i:2">Vacantes compartidas por empresas para estudiantes y egresados de la UT Cancún. Revisa los requisitos de cada una y postúlate por correo.</p>
+  </div>
+
+  <div class="section">
+    <div class="result-meta"><div class="chips" id="vacChips" role="group" aria-label="Filtrar vacantes por división"></div><span id="vacCount"></span></div>
+    <div class="grid g3" id="vacList"></div>
+  </div>
+
+  <div class="section cta-band rise" style="--i:3">
+    <div><h3>¿Tienes un caso particular?</h3><p class="muted" style="margin-top:6px">Si buscas orientación sobre una vacante, tu CV o tu seguimiento como egresado, escríbenos y te atendemos de forma personal.</p></div>
+    <a class="btn btn-wine" href="mailto:bolsadetrabajo@utcancun.edu.mx?subject=Atenci%C3%B3n%20a%20mi%20caso%20-%20Bolsa%20de%20trabajo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>bolsadetrabajo@utcancun.edu.mx</a>
+  </div>
+
+  <div class="section rise" style="--i:4">
+    <div class="find">
+      <div class="building" aria-hidden="true"><div>D<small>Edificio</small></div></div>
+      <div>
+        <span class="eyebrow">¿Dónde encontrarnos?</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin-top:6px">Bolsa de trabajo, en Gestión Empresarial</h2>
+        <dl>
+          <dt>Ubicación</dt><dd>Edificio D, Departamento de Gestión Empresarial</dd>
+          <dt>Horario</dt><dd class="num">Lunes a viernes, 8:00 a 16:00 h</dd>
+          <dt>Teléfono</dt><dd class="num"><a href="tel:+529988811900,1151">(998) 881-1900, ext. 1151</a></dd>
+          <dt>Facebook</dt><dd><a href="https://www.facebook.com/EgresadosBolsadetrabajoUTCancun/" target="_blank" rel="noopener">Bolsa de Trabajo, UT Cancún</a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EMPRESAS ================= -->
+<section class="view wrap" data-view="empresas" hidden>
+  <div class="page-hero">
+    <span class="eyebrow rise" style="--i:0">Empresas vinculadas · actualizado al <span data-fecha-lista>6 de julio de 2026</span></span>
+    <h1 class="rise" style="--i:1">Encuentra la empresa para tu estadía.</h1>
+  </div>
+
+  <div class="section" style="margin-top:24px">
+    <div class="notice rise" style="--i:2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+      <p><b>Solo puedes hacer tu estadía en las empresas de esta lista</b>, o en una cuyo convenio esté en trámite. Antes de elegir, verifica que el área donde estarás tenga relación con tu carrera.</p>
+    </div>
+    <div class="unlinked rise" style="--i:3">
+      <div><h3>¿La empresa que quieres no está vinculada?</h3><p>Conoce el proceso para solicitar el convenio.</p></div>
+      <a class="btn" href="#vincular">Ver el proceso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="tools rise" style="--i:4" role="search">
+      <div class="tools-row">
+        <div class="field"><label for="q">Buscar</label><input id="q" type="search" placeholder="Nombre o actividad, p. ej. hotel, software, contable" autocomplete="off"></div>
+        <div class="field"><label for="fGiro">Giro</label><select id="fGiro"><option value="">Todos los giros</option></select></div>
+        <div class="field"><label for="fUbi">Ubicación</label><select id="fUbi"><option value="">Todas las ubicaciones</option></select></div>
+      </div>
+      <div class="chips" id="divChips" role="group" aria-label="Filtrar por división afín"></div>
+    </div>
+
+    <div class="result-meta"><span id="resCount"></span><button class="linkbtn" id="clearF" type="button">Limpiar filtros</button></div>
+    <div class="co-list" id="coList"></div>
+    <button class="btn btn-ghost more" id="moreBtn" type="button">Ver más empresas</button>
+    <p class="note">La división afín y la ubicación son una guía calculada a partir del nombre y la actividad comercial de cada empresa. Confirma con tu dirección de carrera que el área se relacione con tu carrera. Si la empresa de tu registro no aparece, aún no concluye su proceso de vinculación.</p>
+  </div>
+</section>
+
+<!-- ================= VINCULAR ================= -->
+<section class="view wrap" data-view="vincular" hidden>
+  <a class="back rise" style="--i:0" href="#empresas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Volver a empresas vinculadas</a>
+  <div class="page-hero" style="margin-top:18px">
+    <span class="eyebrow rise" style="--i:1">Vinculación de empresas nuevas</span>
+    <h1 class="rise" style="--i:2">¿Tu empresa no tiene convenio? Así se tramita.</h1>
+    <p class="lead rise" style="--i:3">Consigue los datos de Recursos Humanos de la empresa y captura la solicitud. Nosotros nos encargamos del contacto y del convenio.</p>
+  </div>
+
+  <div class="section window rise" style="--i:4">
+    <b class="num">26 oct – 13 nov 2026</b><span>Periodo de solicitud de vinculación de empresas nuevas</span>
+  </div>
+
+  <div class="section">
+    <ol class="flow">
+      <li class="rise" style="--i:5"><span class="n">1</span><p>Capturas los datos de la empresa<small>En la Solicitud de Vinculación Empresarial</small></p></li>
+      <li class="rise" style="--i:6"><span class="n">2</span><p>Gestión Empresarial la contacta<small>Le enviamos por correo los requisitos</small></p></li>
+      <li class="rise" style="--i:7"><span class="n">3</span><p>La empresa envía documentos a Jurídico<small>Tiene 5 días hábiles</small></p></li>
+      <li class="rise" style="--i:8"><span class="n">4</span><p>Jurídico elabora el convenio</p></li>
+      <li class="rise" style="--i:9"><span class="n">5</span><p>Firma la empresa<small>Apoderado legal y testigo, en 5 días hábiles</small></p></li>
+      <li class="rise" style="--i:10"><span class="n">6</span><p>3 juegos impresos y firmas de la UT</p></li>
+      <li class="rise" style="--i:11"><span class="n">7</span><p>Se notifica a la empresa la entrega del convenio</p></li>
+    </ol>
+  </div>
+
+  <div class="section notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <p>Si la empresa no firma el convenio en 5 días hábiles después de elaborado, <b>deberás elegir una empresa de la lista de vinculadas</b>.</p>
+  </div>
+
+  <div class="section actions">
+    <a class="btn btn-primary" href="http://201.134.180.251:8080/encuestas/index.php/181274?lang=es-MX" target="_blank" rel="noopener">Llenar Solicitud de Vinculación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <a class="btn btn-ghost" href="#contacto">Dudas sobre convenios</a>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="view wrap" data-view="contacto" hidden>
+  <div class="page-hero">
+    <span class="eyebrow rise" style="--i:0">Contáctanos</span>
+    <h1 class="rise" style="--i:1">Estamos para acompañarte.</h1>
+    <p class="lead rise" style="--i:2">Toca un correo para escribirnos o un teléfono para llamar. Únete a nuestros canales para recibir avisos y fechas directo en tu celular.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Canales de difusión</span><h2>Escanea y síguenos</h2></div>
+    <div class="split">
+      <div class="qr-group"><h3>Estadías profesionales</h3><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))">
+        <a class="qr" href="https://whatsapp.com/channel/0029VbDNn4t7DAWvRyyTvk1N" target="_blank" rel="noopener" style="--c:var(--green-ink)"><img src="img/qr-whatsapp-estadias.png" alt="Código QR del canal de WhatsApp Estadías Profesionales"><span class="kind">Canal de WhatsApp</span><b>Estadías Profesionales-UT Cancún</b></a>
+        <a class="qr" href="https://www.facebook.com/EstadiaProfesionalUTCancun/" target="_blank" rel="noopener" style="--c:var(--navy)"><img src="img/qr-facebook-estadias.png" alt="Código QR de la página de Facebook Estadía profesional"><span class="kind">Página de Facebook</span><b>Estadía profesional, UT Cancún</b></a>
+      </div></div>
+      <div class="qr-group"><h3>Bolsa de trabajo y egresados</h3><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))">
+        <a class="qr" href="https://whatsapp.com/channel/0029VbEBJiLK5cDJkH0aim00" target="_blank" rel="noopener" style="--c:var(--green-ink)"><img src="img/qr-whatsapp-bolsa.png" alt="Código QR del canal de WhatsApp Bolsa de Trabajo"><span class="kind">Canal de WhatsApp</span><b>Bolsa de Trabajo-UT Cancún</b></a>
+        <a class="qr" href="https://www.facebook.com/EgresadosBolsadetrabajoUTCancun/" target="_blank" rel="noopener" style="--c:var(--navy)"><img src="img/qr-facebook-bolsa.png" alt="Código QR de la página de Facebook Bolsa de Trabajo"><span class="kind">Página de Facebook</span><b>Bolsa de Trabajo, UT Cancún</b></a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Departamento de Gestión Empresarial · Edificio D</span><h2>Estadías, bolsa de trabajo y convenios</h2><p class="muted num">Horario de 8:00 a 18:00 h · Tel. (998) 881-1900, ext. 1319 y 1141</p></div>
+    <div class="grid g3" id="peopleGE"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="eyebrow">Divisiones académicas</span><h2>Contactos de tu división</h2></div>
+    <div class="grid g4" id="peopleDiv"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="chip"><img src="img/logo-ut-cancun.png" alt="UT Cancún · BIS Universities"></span>
+    <p>Departamento de Gestión Empresarial · Secretaría de Vinculación<br>Universidad Tecnológica de Cancún · Edificio D</p>
+    <p><a href="https://utcancun.edu.mx/" target="_blank" rel="noopener">utcancun.edu.mx</a></p>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/datos.js"></script>
+<script src="js/empresas.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
