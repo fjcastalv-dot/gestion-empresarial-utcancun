@@ -16,29 +16,30 @@ const DIVS = {
    puesto, empresa  → obligatorios
    div              → división o divisiones afines: "eca", "ing", "tur", "gas" (una o varias entre corchetes)
    ubicacion, sueldo, dirigida, fecha ("AAAA-MM-DD", fecha de publicación) → opcionales
+   flyer            → opcional: ruta del cartel en img/vacantes/ (se muestra completo y se amplía al hacer clic)
    funciones, requisitos, ofrecemos → listas opcionales que se muestran en "Ver detalles"
    Para quitar una vacante, borra su bloque { ... } completo (incluida la coma final). */
 const VACANTES = [
   {
-    puesto:"Técnico electromecánico y auxiliar de mantenimiento", empresa:"Vanderlande", div:["ing"],
+    puesto:"Técnico electromecánico y auxiliar de mantenimiento", empresa:"Vanderlande", flyer:"img/vacantes/vanderlande-tecnico-electromecanico.jpg", div:["ing"],
     ubicacion:"Aeropuerto de Cancún", sueldo:"$12,000 a $13,200 brutos al mes", fecha:"2026-11-05",
     requisitos:["Mantenimiento preventivo y correctivo (deseable)","Disponibilidad para rolar turnos"],
     ofrecemos:["Primeros 3 meses: prestaciones de ley (seguro social, 12 días de vacaciones el primer año, 15 días de aguinaldo y 25 % de prima vacacional)","Apoyo de transporte de $54 netos por día laborado","Apoyo de reubicación de $3,500 netos mensuales por 2 meses","A partir del 4.º mes: vales de despensa de $1,000 mensuales, fondo de ahorro de $300 mensuales, bono de asistencia y puntualidad del 5 % del sueldo y seguro de vida"]
   },
   {
-    puesto:"Analista de capacitación y desarrollo organizacional", empresa:"Aguakan", div:["eca"],
+    puesto:"Analista de capacitación y desarrollo organizacional", empresa:"Aguakan", flyer:"img/vacantes/aguakan-analista-capacitacion.jpg", div:["eca"],
     dirigida:"Egresados", fecha:"2026-11-05",
     requisitos:["Licenciatura concluida en Psicología, Psicopedagogía o Administración (indispensable)","Manejo de vehículo estándar (indispensable)","Manejo de Excel avanzado","Experiencia en NOM-035, clima laboral, programas de salud mental laboral, manejo de estrés laboral, planes de sucesión y metodología GPTW","Disponibilidad de horario"],
     ofrecemos:["90 días de utilidades","Fondo de ahorro","Plan de desarrollo","Vales de despensa"]
   },
   {
-    puesto:"Técnico administrativo", empresa:"Aguakan", div:["eca"],
+    puesto:"Técnico administrativo", empresa:"Aguakan", flyer:"img/vacantes/aguakan-tecnico-administrativo.jpg", div:["eca"],
     ubicacion:"Cancún, Q. Roo", fecha:"2026-11-05",
     requisitos:["Bachillerato concluido","Experiencia administrativa","Manejo de paquetería Office","Licencia de conducir vigente","Manejo de motocicleta estándar y automóvil (indispensable)","Disponibilidad para trabajo en campo y oficina","Radicar en Cancún, Q. Roo"],
     ofrecemos:["90 días de utilidades","Fondo de ahorro","Plan de desarrollo","Vales de despensa"]
   },
   {
-    puesto:"Customer Experience", empresa:"AVASA (Hertz, Dollar, Thrifty, Firefly)", div:["tur","eca"],
+    puesto:"Customer Experience", empresa:"AVASA (Hertz, Dollar, Thrifty, Firefly)", flyer:"img/vacantes/avasa-customer-experience.jpg", div:["tur","eca"],
     ubicacion:"Cancún", fecha:"2026-11-05",
     funciones:["Brindar atención personalizada a los clientes","Verificar reservaciones y documentación","Atender dudas e incidencias y dar seguimiento","Orientar al cliente durante la entrega del vehículo"],
     requisitos:["Inglés intermedio-avanzado (indispensable)","Disponibilidad de horario","Actitud de servicio y trato amable con el cliente"],

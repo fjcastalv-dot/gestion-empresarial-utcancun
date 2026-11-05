@@ -259,7 +259,33 @@ details.faq ul{margin:0;padding-left:20px;display:grid;gap:4px}
 .vac .btn{justify-self:start;padding:9px 16px;font-size:.88rem}
 .vac .facts{align-items:center}
 .vac .pub{display:block;font-weight:400;font-size:.76rem;color:var(--muted);margin-top:2px}
-#vacList{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));align-items:start}
+#vacList{grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));align-items:start}
+/* Cartel de la vacante: completo, sin recortes */
+.vac.has-flyer{padding:0;gap:0;overflow:hidden}
+.vac-info{display:grid;gap:12px;align-content:start}
+.vac.has-flyer .vac-info{padding:18px 18px 20px}
+.flyer{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:12px;border:0;border-bottom:1px solid var(--line);background:var(--band);cursor:zoom-in;overflow:hidden}
+.flyer img{width:100%;height:100%;object-fit:contain;display:block;border-radius:6px;transition:transform .6s var(--ease)}
+.flyer:hover img{transform:scale(1.035)}
+.flyer .zoom{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(26,38,64,.88);color:#fff;font-size:.76rem;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .35s var(--ease)}
+.flyer .zoom svg{width:14px;height:14px}
+.flyer:hover .zoom,.flyer:focus-visible .zoom{opacity:1;transform:none}
+@media (hover:none){.flyer .zoom{opacity:1;transform:none}}
+/* Visor a pantalla completa */
+.lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,920px);max-height:94vh;overflow:visible;color:#fff}
+.lightbox::backdrop{background:rgba(15,22,38,.78);backdrop-filter:blur(4px)}
+.lightbox[open]{animation:lbIn .35s var(--ease) both}
+.lightbox[open]::backdrop{animation:lbFade .35s ease both}
+.lightbox.closing{animation:lbOut .22s ease both}
+@keyframes lbIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes lbOut{to{opacity:0;transform:scale(.97)}}
+@keyframes lbFade{from{opacity:0}to{opacity:1}}
+.lightbox img{display:block;max-width:100%;max-height:84vh;margin:0 auto;border-radius:12px;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.lightbox p{text-align:center;font-size:.9rem;font-weight:500;margin-top:12px;color:#fff}
+.lb-close{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#1A2640;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 16px -6px rgba(0,0,0,.5);transition:transform .25s var(--ease)}
+.lb-close:hover{transform:rotate(90deg)}
+.lb-close svg{width:18px;height:18px}
+@media (max-width:560px){.lb-close{top:-48px;right:0}}
 .vac .pay{font-weight:700;color:var(--green-ink);font-size:.98rem}
 .vac-more{border-top:1px solid var(--line);padding-top:4px}
 .vac-more summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-weight:600;font-size:.9rem;color:var(--green-ink)}
@@ -359,3 +385,4 @@ footer a{color:#fff}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:.88rem;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s var(--ease);z-index:80}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .note{font-size:.82rem;color:var(--muted)}
+.vac.has-flyer h3{font-size:1.08rem;line-height:1.2}
