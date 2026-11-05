@@ -370,7 +370,9 @@ body.header-hidden .tools{top:calc(env(safe-area-inset-top,0px) + 12px)}
 .line{display:flex;align-items:center;gap:8px;min-width:0}
 .line a{flex:1;min-width:0;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-size:.9rem;padding:6px 8px;margin:-6px -8px;border-radius:8px;transition:background .2s}
 .line a:hover{background:var(--mist)}
-.line a span{overflow-wrap:anywhere;user-select:all}
+.line a span{overflow-wrap:break-word;user-select:all}
+.line a span.mail{overflow-wrap:anywhere;word-break:normal}
+.line a .nw{white-space:nowrap}
 .line svg{width:16px;height:16px;color:var(--green-ink);flex:none}
 .copy{flex:none;border:0;background:var(--mist);border-radius:8px;width:32px;height:32px;display:grid;place-items:center;cursor:pointer;color:var(--green-ink);transition:background .2s}
 .copy:hover{background:var(--line)}
@@ -427,3 +429,4 @@ details.priv .body p{max-width:72ch;line-height:1.7;color:var(--ink);padding-lef
 @keyframes celIn{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
 @keyframes celDraw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.cel-badge circle,.cel-badge path{stroke-dashoffset:0}}
+#peopleGE{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}

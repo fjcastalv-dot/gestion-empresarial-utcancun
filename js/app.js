@@ -218,8 +218,8 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
 (function people(){
   const line = p => {
     const telHref = `tel:${TEL},${p.ext.split(" ")[0]}`;
-    return `<div class="line"><a href="mailto:${p.mail}">${ICON_MAIL}<span>${p.mail}</span></a><button class="copy" type="button" data-copy="${p.mail}" aria-label="Copiar correo ${p.mail}">${ICON_COPY}</button></div>` +
-      (p.ext ? `<div class="line"><a href="${telHref}">${ICON_TEL}<span class="num">(998) 881-1900 ext. ${p.ext}</span></a><button class="copy" type="button" data-copy="(998) 881-1900 ext. ${p.ext}" aria-label="Copiar teléfono">${ICON_COPY}</button></div>` : "");
+    return `<div class="line"><a href="mailto:${p.mail}">${ICON_MAIL}<span class="mail">${p.mail.replace("@","<wbr>@")}</span></a><button class="copy" type="button" data-copy="${p.mail}" aria-label="Copiar correo ${p.mail}">${ICON_COPY}</button></div>` +
+      (p.ext ? `<div class="line"><a href="${telHref}">${ICON_TEL}<span class="num">(998)&nbsp;881-1900 <span class="nw">ext.&nbsp;${p.ext}</span></span></a><button class="copy" type="button" data-copy="(998) 881-1900 ext. ${p.ext}" aria-label="Copiar teléfono">${ICON_COPY}</button></div>` : "");
   };
   $("#peopleGE").innerHTML = PEOPLE_GE.map(p=>`<div class="person${p.feature?" feature":""}"><span class="role">${esc(p.role)}</span><h3>${esc(p.name)}</h3>${line(p)}</div>`).join("");
   $("#peopleDiv").innerHTML = PEOPLE_DIV.map(p=>`<div class="person" style="--c:${p.c}"><span class="role">${esc(p.role)}</span><h3>${esc(p.name)}</h3>${line({...p,ext:""})}</div>`).join("");

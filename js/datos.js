@@ -48,11 +48,11 @@ const VACANTES = [
 ];
 const TEL = "+529988811900";
 const PEOPLE_GE = [
-  {role:"Bolsa de trabajo", name:"Javier Castillo", mail:"bolsadetrabajo@utcancun.edu.mx", ext:"1151", feature:true},
-  {role:"Convenios", name:"Rubí Quintero", mail:"rquintero@utcancun.edu.mx", ext:"1131", feature:true},
-  {role:"Gestión Empresarial", name:"Lic. Carlos Antonio Peraza Magaña", mail:"cperaza@utcancun.edu.mx", ext:"1319 y 1141"},
+  {role:"Bolsa de trabajo", name:"Lic. Javier Castillo", mail:"bolsadetrabajo@utcancun.edu.mx", ext:"1151", feature:true},
+  {role:"Convenios", name:"Lic. Rubí Quintero", mail:"rquintero@utcancun.edu.mx", ext:"1131", feature:true},
+  {role:"Gestión Empresarial", name:"Lic. Carlos Antonio Peraza Magaña", mail:"cperaza@utcancun.edu.mx", ext:"1102"},
   {role:"Estadías", name:"Lic. Flor Abigail Pacheco Dzul", mail:"estadia@utcancun.edu.mx", ext:"1319"},
-  {role:"Estadías", name:"C. Remedios Sánchez May", mail:"rsanchez@utcancun.edu.mx", ext:"1141"}
+  {role:"Estadías", name:"Lic. Remedios Sánchez May", mail:"rsanchez@utcancun.edu.mx", ext:"1141"}
 ];
 const PEOPLE_DIV = [
   {role:"Económico-Administrativa", name:"Lic. Karla Mónica Flores García", mail:"kflores@utcancun.edu.mx", c:"var(--div-eca)"},
