@@ -17,7 +17,7 @@ const DIVS = {
    div              → división o divisiones afines: "eca", "ing", "tur", "gas" (una o varias entre corchetes)
    ubicacion, sueldo, dirigida, fecha ("AAAA-MM-DD", fecha de publicación) → opcionales
    flyer            → opcional: ruta del cartel en img/vacantes/ (se muestra completo y se amplía al hacer clic)
-   funciones, requisitos, ofrecemos → listas opcionales que se muestran en "Ver detalles"
+   funciones, requisitos, ofrecemos → listas opcionales; se muestran en "Ver detalles" solo si la vacante no tiene cartel
    Para quitar una vacante, borra su bloque { ... } completo (incluida la coma final). */
 const VACANTES = [
   {
