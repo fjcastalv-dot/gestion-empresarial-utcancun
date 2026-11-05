@@ -23,18 +23,40 @@ $("#agendaBtn").href = AGENDA_URL;
 document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = FECHA_LISTA);
 
 (function buildRoute(){
-  const labels=["Inducción","Empresa","Carta","Registro","Entrega","Encuestas","Documentos","Evaluación","Liberación","Entrega final"];
-  // Paradas sobre el trazo: fila superior →, curva derecha, fila media ←, fila inferior → (final)
-  const p2=[[56,40],[141,40],[226,40],[311,40],[385,82],[311,125],[226,125],[141,125],[56,125],[360,210]];
-  const g=$("#stops"); let h="";
-  p2.forEach(([x,y],i)=>{
-    const fin=i===9, side=(i===4);
-    const tx = side ? x-22 : (fin ? x+13 : x), ty = side ? y+4 : (fin ? y-22 : y+28), anchor = side||fin ? "end" : "middle";
-    h+=`<g class="stop${fin?" final":""}" style="--k:${i}"><circle cx="${x}" cy="${y}" r="13"/><text class="n" x="${x}" y="${y+4.5}" text-anchor="middle">${i+1}</text><text x="${tx}" y="${ty}" text-anchor="${anchor}">${labels[i]}</text></g>`;
-  });
-  g.innerHTML=h;
-  const path=document.querySelector(".route-svg .draw");
-  path.style.setProperty("--len", Math.ceil(path.getTotalLength()));
+  const labels=["Inducción","Elige tu empresa","Carta de presentación","Registro de estadía","Entrega de carta","Encuestas de egresados","Documentos en tu división","Evaluación académica","Carta de liberación","Entrega final"];
+  const short=["Inducción","Empresa","Carta","Registro","Entrega","Encuestas","Documentos","Evaluación","Liberación","Entrega final"];
+  const svg=document.querySelector(".route-svg"), track=svg.querySelector(".track"), draw=svg.querySelector(".draw"), g=$("#stops");
+  const mq=matchMedia("(max-width:560px)");
+  function layout(){
+    let d, pts, lab, h="";
+    if(mq.matches){
+      // Celular: ruta vertical, una parada por renglón y etiquetas completas
+      const top=22, gap=40, x=26;
+      pts=labels.map((_,i)=>[x, top+i*gap]);
+      d=`M${x} ${top} V${top+9*gap}`;
+      svg.setAttribute("viewBox",`0 0 300 ${top*2+9*gap}`);
+      svg.classList.add("vertical");
+      pts.forEach(([px,py],i)=>{
+        h+=`<g class="stop${i===9?" final":""}" style="--k:${i}"><circle cx="${px}" cy="${py}" r="13"/><text class="n" x="${px}" y="${py+4.5}" text-anchor="middle">${i+1}</text><text x="${px+26}" y="${py+5}" text-anchor="start">${labels[i]}</text></g>`;
+      });
+    } else {
+      // Escritorio: fila superior →, curva derecha, fila media ←, fila inferior → (final)
+      pts=[[56,40],[141,40],[226,40],[311,40],[385,82],[311,125],[226,125],[141,125],[56,125],[360,210]];
+      d="M56 40 H360 Q385 40 385 65 V100 Q385 125 360 125 H40 Q14 125 14 151 V184 Q14 210 40 210 H360";
+      svg.setAttribute("viewBox","0 0 400 236");
+      svg.classList.remove("vertical");
+      pts.forEach(([x,y],i)=>{
+        const fin=i===9, side=(i===4);
+        const tx = side ? x-22 : (fin ? x+13 : x), ty = side ? y+4 : (fin ? y-22 : y+28), anchor = side||fin ? "end" : "middle";
+        h+=`<g class="stop${fin?" final":""}" style="--k:${i}"><circle cx="${x}" cy="${y}" r="13"/><text class="n" x="${x}" y="${y+4.5}" text-anchor="middle">${i+1}</text><text x="${tx}" y="${ty}" text-anchor="${anchor}">${short[i]}</text></g>`;
+      });
+    }
+    track.setAttribute("d",d); draw.setAttribute("d",d);
+    g.innerHTML=h;
+    draw.style.setProperty("--len", Math.ceil(draw.getTotalLength()));
+  }
+  layout();
+  (mq.addEventListener ? mq.addEventListener("change",layout) : mq.addListener(layout));
   // Al pasar el mouse (o tocar en celular) se vuelve a dibujar la ruta
   const card=document.querySelector(".route-card"); let busyUntil=0;
   const replay=()=>{

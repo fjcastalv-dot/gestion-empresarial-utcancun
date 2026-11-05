@@ -67,7 +67,7 @@ const STEPS = [
   {n:"3", t:"Descarga tu carta de presentación", s:"2026-12-11", e:"2027-01-08", w:"11 dic 2026 – 8 ene 2027", d:"Llévala a la empresa para que Recursos Humanos o el área asignada la firme, selle y escriba el nombre del responsable. Guárdala para el paso 5."},
   {m:true, t:"Inicia tu estadía", s:"2027-01-07", e:"2027-01-07", w:"7 ene 2027"},
   {n:"4", t:"Haz tu registro de estadía", s:"2027-01-07", e:"2027-01-22", w:"7 – 22 ene", d:"Captura tus datos, los de la empresa, tu asesor empresarial y la modalidad."},
-  {n:"5", t:"Entrega tu carta de presentación", s:"2027-01-07", e:"2027-01-22", w:"7 – 22 ene", d:"En Gestión Empresarial, Edificio D, de 8:00 a 17:00 h. Original y copia, firmada, sellada y con el nombre del responsable."},
+  {n:"5", t:"Entrega tu carta de presentación", s:"2027-01-07", e:"2027-01-22", w:"7 – 22 ene", d:"En Gestión Empresarial, Edificio D, de 8:00 a 17:00\u00A0h. Original y copia, firmada, sellada y con el nombre del responsable."},
   {m:true, t:"Límite para cambio de empresa y documentos de estadía foránea", s:"2027-01-18", e:"2027-01-18", w:"18 ene 2027"},
   {n:"6", t:"Responde las encuestas de egresados", s:"2027-03-16", e:"2027-03-19", w:"16 – 19 mar", d:"Registro y actualización de datos de egresados, y encuesta de satisfacción. Ambas obligatorias."},
   {n:"7", t:"Entrega documentos en tu división", w:"Fecha que indique tu división", d:"Entrega los documentos que solicite tu división académica en la fecha y horario que te indiquen."},

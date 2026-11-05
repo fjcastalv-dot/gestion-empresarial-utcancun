@@ -114,6 +114,7 @@ main{min-height:60vh}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:28px}}
 .hero .hero-title{font-size:clamp(2.1rem,5vw,3.6rem);font-weight:800}
 .hero .hero-title em{font-style:normal;color:var(--green-ink)}
 .hero-copy{display:grid;gap:20px;min-width:0}
@@ -326,7 +327,7 @@ body.header-hidden .tools{top:calc(env(safe-area-inset-top,0px) + 12px)}
 .co-card:hover{border-color:var(--green);box-shadow:var(--shadow)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .co-card h3{font-family:var(--f-body);font-weight:600;font-size:.97rem;line-height:1.3;overflow-wrap:anywhere}
-.co-card .giro{font-size:.84rem;color:var(--muted);line-height:1.4}
+.co-card .giro{font-size:.8rem;color:var(--muted);line-height:1.45;text-transform:uppercase;letter-spacing:.02em}
 .co-card .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .divdots{display:flex;gap:4px;margin-left:auto}
 .divdots i{width:10px;height:10px;border-radius:50%;background:var(--c)}
@@ -401,3 +402,9 @@ details.priv .body p{max-width:72ch;line-height:1.7;color:var(--ink);padding-lef
 .foot-links{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:flex-end}
 @media (max-width:760px){.foot-links{justify-content:flex-start}}
 .vac-foot .note a{white-space:nowrap}
+
+/* Ruta vertical en celular */
+.route-svg.vertical{max-width:340px}
+.route-svg.vertical .stop text{font-size:14px}
+.route-svg.vertical .stop text.n{font-size:13px}
+.stat span{text-wrap:pretty}
