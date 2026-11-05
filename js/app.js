@@ -112,7 +112,7 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
     upd();
   };
   const upd = () => { const n=st.length; $("#checkTxt").textContent=`${n} de ${CHECK.length}`; $("#checkFill").style.setProperty("--p",(n/CHECK.length*100)+"%"); };
-  box.addEventListener("change", e => { const i=+e.target.dataset.i; st = e.target.checked ? [...new Set([...st,i])] : st.filter(x=>x!==i); store.set("ge-check",st); upd(); if(st.length===CHECK.length) toast("¡Completaste todas las actividades!"); });
+  box.addEventListener("change", e => { const i=+e.target.dataset.i; st = e.target.checked ? [...new Set([...st,i])] : st.filter(x=>x!==i); store.set("ge-check",st); upd(); if(e.target.checked && st.length===CHECK.length) celebrate(); });
   $("#checkReset").addEventListener("click",()=>{st=[];store.set("ge-check",st);render();});
   render();
 })();
@@ -271,4 +271,64 @@ show(location.hash.slice(1)||"inicio",false);
   const sync=()=>{ btn.textContent = all().every(d=>d.open) ? "Cerrar todos" : "Abrir todos"; };
   btn.addEventListener("click",()=>{ const open=!all().every(d=>d.open); all().forEach(d=>d.open=open); sync(); });
   all().forEach(d=>d.addEventListener("toggle",sync));
+})();
+
+/* ================= FELICITACIÓN AL COMPLETAR EL CHECKLIST ================= */
+function celebrate(){
+  const box=$("#celebrate"), btn=$("#celClose");
+  box.hidden=false; box.classList.remove("leaving");
+  setTimeout(()=>btn.focus({preventScroll:true}),350);
+  if(!matchMedia("(prefers-reduced-motion:reduce)").matches) fireworks.start();
+}
+(function(){
+  const box=$("#celebrate");
+  const close=()=>{ if(box.hidden) return; box.classList.add("leaving"); setTimeout(()=>{ box.hidden=true; box.classList.remove("leaving"); },260); fireworks.stop(); };
+  $("#celClose").addEventListener("click",close);
+  box.addEventListener("click",e=>{ if(e.target===box) close(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+})();
+const fireworks=(function(){
+  const cv=$("#fireworks"), ctx=cv.getContext("2d");
+  const COLORS=["#39BEA3","#A2E3C5","#00806C","#FFFFFF","#7FD9B6","#9FC3FF"];   // paleta institucional
+  let parts=[], rockets=[], raf=0, until=0, w=0, h=0, dpr=1, timers=[];
+  const size=()=>{ dpr=Math.min(window.devicePixelRatio||1,2); w=innerWidth; h=innerHeight; cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); };
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  function launch(){
+    const x=rnd(w*.15,w*.85);
+    rockets.push({x, y:h+10, vx:rnd(-.6,.6), vy:-rnd(h*.0105,h*.0135)-6, ty:rnd(h*.15,h*.45), c:COLORS[(Math.random()*COLORS.length)|0]});
+  }
+  function burst(r){
+    const n=(rnd(46,70))|0, c2=COLORS[(Math.random()*COLORS.length)|0];
+    for(let i=0;i<n;i++){
+      const a=(Math.PI*2*i)/n+rnd(-.08,.08), sp=rnd(1.6,4.6)*Math.max(1,Math.min(w,h)/620);
+      parts.push({x:r.x,y:r.y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,decay:rnd(.011,.019),c:i%3?r.c:c2,s:rnd(1.6,2.8)});
+    }
+  }
+  function frame(){
+    ctx.globalCompositeOperation="destination-out"; ctx.fillStyle="rgba(0,0,0,.22)"; ctx.fillRect(0,0,w,h);
+    ctx.globalCompositeOperation="lighter";
+    rockets=rockets.filter(r=>{
+      r.x+=r.vx; r.y+=r.vy; r.vy+=.12;
+      ctx.fillStyle=r.c; ctx.beginPath(); ctx.arc(r.x,r.y,2.2,0,Math.PI*2); ctx.fill();
+      if(r.y<=r.ty || r.vy>=-.5){ burst(r); return false; } return true;
+    });
+    parts=parts.filter(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vx*=.985; p.vy=p.vy*.985+.045; p.life-=p.decay;
+      if(p.life<=0) return false;
+      ctx.globalAlpha=Math.max(p.life,0); ctx.fillStyle=p.c; ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,Math.PI*2); ctx.fill(); ctx.globalAlpha=1;
+      return true;
+    });
+    if(performance.now()<until || rockets.length || parts.length){ raf=requestAnimationFrame(frame); }
+    else { ctx.clearRect(0,0,w,h); cv.classList.remove("on"); raf=0; }
+  }
+  function start(){
+    stop(); size(); cv.classList.add("on");
+    until=performance.now()+3600;
+    [0,250,520,800,1100,1400,1750,2050,2400,2800].forEach(t=>timers.push(setTimeout(launch,t)));
+    timers.push(setTimeout(()=>{launch();launch();},3100));
+    raf=requestAnimationFrame(frame);
+  }
+  function stop(){ timers.forEach(clearTimeout); timers=[]; if(raf) cancelAnimationFrame(raf); raf=0; rockets=[]; parts=[]; ctx.clearRect(0,0,w,h); cv.classList.remove("on"); }
+  addEventListener("resize",()=>{ if(raf) size(); });
+  return {start,stop};
 })();

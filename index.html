@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <link rel="icon" type="image/png" href="img/logo-ut-cancun.png">
-<link rel="stylesheet" href="css/styles.css?v=20261105i">
+<link rel="stylesheet" href="css/styles.css?v=20261105j">
 </head>
 <body>
 <header class="top">
@@ -413,10 +413,20 @@
   <img id="lbImg" alt="">
   <p id="lbCap"></p>
 </dialog>
+<div class="celebrate" id="celebrate" hidden role="dialog" aria-modal="true" aria-labelledby="celTitle" aria-describedby="celText">
+  <canvas class="fireworks" id="fireworks" aria-hidden="true"></canvas>
+  <div class="cel-card">
+    <div class="cel-badge" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"/><path d="M15 27.5l7.5 7.5L37.5 19"/></svg></div>
+    <span class="eyebrow">Estadía profesional</span>
+    <h2 id="celTitle">¡Felicidades!</h2>
+    <p id="celText">Completaste todas las actividades de tu checklist de estadía. ¡Mucho éxito en esta nueva etapa profesional!</p>
+    <button class="btn btn-primary" id="celClose" type="button">Cerrar</button>
+  </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/datos.js?v=20261105i"></script>
-<script src="js/empresas.js?v=20261105i"></script>
-<script src="js/app.js?v=20261105i"></script>
+<script src="js/datos.js?v=20261105j"></script>
+<script src="js/empresas.js?v=20261105j"></script>
+<script src="js/app.js?v=20261105j"></script>
 </body>
 </html>

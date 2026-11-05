@@ -18,6 +18,7 @@
 :root{color-scheme:light}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band)}
@@ -408,3 +409,21 @@ details.priv .body p{max-width:72ch;line-height:1.7;color:var(--ink);padding-lef
 .route-svg.vertical .stop text{font-size:14px}
 .route-svg.vertical .stop text.n{font-size:13px}
 .stat span{text-wrap:pretty}
+
+/* Felicitación al completar el checklist */
+.fireworks{position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;opacity:0;transition:opacity .4s}
+.fireworks.on{opacity:1}
+.celebrate{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(15,22,38,.62);backdrop-filter:blur(4px);animation:lbFade .35s ease both}
+.celebrate.leaving{animation:lbFade .26s ease reverse both}
+.celebrate.leaving .cel-card{animation:lbOut .26s ease both}
+.cel-card{position:relative;z-index:2;display:grid;justify-items:center;gap:12px;text-align:center;max-width:420px;width:100%;padding:34px 28px 28px;border-radius:20px;background:var(--surface);border-top:6px solid #39BEA3;box-shadow:0 30px 70px -30px rgba(0,0,0,.6);animation:celIn .6s var(--ease) both}
+.cel-card h2{font-size:clamp(1.9rem,6vw,2.4rem);font-weight:800;color:var(--ink)}
+.cel-card p{color:var(--muted);max-width:34ch}
+.cel-card .btn{margin-top:6px;justify-self:center}
+.cel-badge{width:76px;height:76px;border-radius:50%;background:var(--mist);display:grid;place-items:center;margin-bottom:2px}
+.cel-badge svg{width:52px;height:52px;fill:none;stroke:#00806C;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.cel-badge circle{stroke:#39BEA3;stroke-dasharray:145;stroke-dashoffset:145;animation:celDraw .7s .2s var(--ease) forwards}
+.cel-badge path{stroke-dasharray:36;stroke-dashoffset:36;animation:celDraw .45s .75s var(--ease) forwards}
+@keyframes celIn{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes celDraw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.cel-badge circle,.cel-badge path{stroke-dashoffset:0}}
