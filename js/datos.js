@@ -12,10 +12,38 @@ const DIVS = {
   gas:{n:"Gastronomía",              c:"var(--div-gas)"}
 };
 /* Vacantes: reemplazar los ejemplos por vacantes reales. Deja el arreglo vacío [] si no hay vacantes. */
+/* Vacantes publicadas. Campos:
+   puesto, empresa  → obligatorios
+   div              → división o divisiones afines: "eca", "ing", "tur", "gas" (una o varias entre corchetes)
+   ubicacion, sueldo, dirigida, fecha ("AAAA-MM-DD", fecha de publicación) → opcionales
+   funciones, requisitos, ofrecemos → listas opcionales que se muestran en "Ver detalles"
+   Para quitar una vacante, borra su bloque { ... } completo (incluida la coma final). */
 const VACANTES = [
-  {puesto:"[Nombre del puesto]", empresa:"[Empresa]", div:"eca", modalidad:"[Presencial / Híbrido]", ubicacion:"[Ubicación]", dirigida:"[Estudiantes / Egresados]", ejemplo:true},
-  {puesto:"[Nombre del puesto]", empresa:"[Empresa]", div:"tur", modalidad:"[Presencial / Híbrido]", ubicacion:"[Ubicación]", dirigida:"[Estudiantes / Egresados]", ejemplo:true},
-  {puesto:"[Nombre del puesto]", empresa:"[Empresa]", div:"ing", modalidad:"[Presencial / Híbrido]", ubicacion:"[Ubicación]", dirigida:"[Estudiantes / Egresados]", ejemplo:true}
+  {
+    puesto:"Técnico electromecánico y auxiliar de mantenimiento", empresa:"Vanderlande", div:["ing"],
+    ubicacion:"Aeropuerto de Cancún", sueldo:"$12,000 a $13,200 brutos al mes", fecha:"2026-11-05",
+    requisitos:["Mantenimiento preventivo y correctivo (deseable)","Disponibilidad para rolar turnos"],
+    ofrecemos:["Primeros 3 meses: prestaciones de ley (seguro social, 12 días de vacaciones el primer año, 15 días de aguinaldo y 25 % de prima vacacional)","Apoyo de transporte de $54 netos por día laborado","Apoyo de reubicación de $3,500 netos mensuales por 2 meses","A partir del 4.º mes: vales de despensa de $1,000 mensuales, fondo de ahorro de $300 mensuales, bono de asistencia y puntualidad del 5 % del sueldo y seguro de vida"]
+  },
+  {
+    puesto:"Analista de capacitación y desarrollo organizacional", empresa:"Aguakan", div:["eca"],
+    dirigida:"Egresados", fecha:"2026-11-05",
+    requisitos:["Licenciatura concluida en Psicología, Psicopedagogía o Administración (indispensable)","Manejo de vehículo estándar (indispensable)","Manejo de Excel avanzado","Experiencia en NOM-035, clima laboral, programas de salud mental laboral, manejo de estrés laboral, planes de sucesión y metodología GPTW","Disponibilidad de horario"],
+    ofrecemos:["90 días de utilidades","Fondo de ahorro","Plan de desarrollo","Vales de despensa"]
+  },
+  {
+    puesto:"Técnico administrativo", empresa:"Aguakan", div:["eca"],
+    ubicacion:"Cancún, Q. Roo", fecha:"2026-11-05",
+    requisitos:["Bachillerato concluido","Experiencia administrativa","Manejo de paquetería Office","Licencia de conducir vigente","Manejo de motocicleta estándar y automóvil (indispensable)","Disponibilidad para trabajo en campo y oficina","Radicar en Cancún, Q. Roo"],
+    ofrecemos:["90 días de utilidades","Fondo de ahorro","Plan de desarrollo","Vales de despensa"]
+  },
+  {
+    puesto:"Customer Experience", empresa:"AVASA (Hertz, Dollar, Thrifty, Firefly)", div:["tur","eca"],
+    ubicacion:"Cancún", fecha:"2026-11-05",
+    funciones:["Brindar atención personalizada a los clientes","Verificar reservaciones y documentación","Atender dudas e incidencias y dar seguimiento","Orientar al cliente durante la entrega del vehículo"],
+    requisitos:["Inglés intermedio-avanzado (indispensable)","Disponibilidad de horario","Actitud de servicio y trato amable con el cliente"],
+    ofrecemos:["Prestaciones de ley","Capacitación continua","Oportunidades de crecimiento","Excelente ambiente de trabajo"]
+  }
 ];
 const TEL = "+529988811900";
 const PEOPLE_GE = [

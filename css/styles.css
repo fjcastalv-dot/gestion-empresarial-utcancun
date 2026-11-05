@@ -248,7 +248,7 @@ details.faq ul{margin:0;padding-left:20px;display:grid;gap:4px}
 .chip-btn .dot{width:9px;height:9px;border-radius:50%;background:var(--c,var(--green))}
 .chip-btn[aria-pressed="true"]{background:var(--c,var(--green-ink));border-color:var(--c,var(--green-ink));color:#fff}
 .chip-btn[aria-pressed="true"] .dot{background:#fff}
-.vac{display:grid;gap:12px;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);transition:transform .35s var(--ease),box-shadow .35s}
+.vac{display:grid;gap:12px;align-content:start;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);transition:transform .35s var(--ease),box-shadow .35s}
 .vac:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .vac h3{font-size:1.2rem}
 .vac .co{font-weight:500}
@@ -257,6 +257,20 @@ details.faq ul{margin:0;padding-left:20px;display:grid;gap:4px}
 .pill.div{background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--ink)}
 .pill.ex{background:var(--navy-soft);color:var(--ink);font-weight:600}
 .vac .btn{justify-self:start;padding:9px 16px;font-size:.88rem}
+.vac .facts{align-items:center}
+.vac .pub{display:block;font-weight:400;font-size:.76rem;color:var(--muted);margin-top:2px}
+#vacList{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));align-items:start}
+.vac .pay{font-weight:700;color:var(--green-ink);font-size:.98rem}
+.vac-more{border-top:1px solid var(--line);padding-top:4px}
+.vac-more summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-weight:600;font-size:.9rem;color:var(--green-ink)}
+.vac-more summary::-webkit-details-marker{display:none}
+.vac-more summary::after{content:"+";font-size:1.3rem;line-height:1;transition:transform .3s var(--ease)}
+.vac-more[open] summary::after{transform:rotate(45deg)}
+.vac-more[open] .vac-body{animation:fadeIn .4s var(--ease) both}
+.vac-body{display:grid;gap:12px;padding:4px 0 8px}
+.vac-block h4{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.vac-block ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:.88rem;line-height:1.45}
+.vac-foot{display:grid;gap:6px;margin-top:auto}
 .empty{padding:40px 20px;text-align:center;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted)}
 .cta-band{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:26px;border-radius:16px;background:var(--band)}
 .cta-band h3{font-size:1.4rem}

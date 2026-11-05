@@ -100,18 +100,26 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
   let f="";
   const chips=$("#vacChips");
   chips.innerHTML = `<button class="chip-btn" type="button" data-d="" aria-pressed="true">Todas</button>` + Object.entries(DIVS).map(([k,v])=>`<button class="chip-btn" type="button" data-d="${k}" aria-pressed="false" style="--c:${v.c}"><span class="dot"></span>${v.n}</button>`).join("");
+  const divsOf = v => [].concat(v.div||[]).filter(k=>DIVS[k]);
+  const MESES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  const fFecha = iso => { const d=day(iso); return `${d.getDate()} ${MESES[d.getMonth()]} ${d.getFullYear()}`; };
+  const lista = (t,arr) => arr&&arr.length ? `<div class="vac-block"><h4>${t}</h4><ul>${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
   const render=()=>{
-    const list = VACANTES.filter(v=>!f||v.div===f);
+    const list = VACANTES.filter(v=>!f||divsOf(v).includes(f));
     $("#vacCount").textContent = `${list.length} ${list.length===1?"vacante":"vacantes"}`;
     $("#vacList").innerHTML = list.length ? list.map((v,i)=>{
-      const d=DIVS[v.div]||{n:"",c:"var(--green)"};
+      const ds=divsOf(v); const c=ds.length?DIVS[ds[0]].c:"var(--green)";
       const subj=encodeURIComponent(`Postulación para vacante ${v.puesto}`);
       const body=encodeURIComponent(`Hola, equipo de Bolsa de Trabajo UT Cancún:\r\n\r\nMe interesa postularme a la vacante "${v.puesto}" de ${v.empresa}.\r\n\r\nAutorizo que se comparta mi CV para la vacante.\r\n\r\n>> IMPORTANTE: antes de enviar este correo, anexa tu CV en formato PDF.\r\n`);
-      return `<article class="vac" style="--c:${d.c};animation:fadeIn .5s ${i*80}ms both var(--ease)">
-        <div class="facts">${v.ejemplo?'<span class="pill ex">Ejemplo</span>':""}<span class="pill div">${esc(d.n)}</span></div>
-        <h3>${esc(v.puesto)}</h3><p class="co">${esc(v.empresa)}</p>
-        <div class="facts"><span class="pill">${esc(v.modalidad)}</span><span class="pill">${esc(v.ubicacion)}</span><span class="pill">${esc(v.dirigida)}</span></div>
-        <a class="btn btn-primary" href="mailto:bolsadetrabajo@utcancun.edu.mx?subject=${subj}&body=${body}" aria-label="Postularme a ${esc(v.puesto)}">Postularme</a><p class="note">Se abre tu correo con el asunto listo. Recuerda anexar tu CV.</p></article>`;
+      const pills=[v.ubicacion,v.modalidad,v.dirigida].filter(Boolean).map(x=>`<span class="pill">${esc(x)}</span>`).join("");
+      const det = lista("Funciones",v.funciones)+lista("Requisitos",v.requisitos)+lista("Ofrecemos",v.ofrecemos);
+      return `<article class="vac" style="--c:${c};animation:fadeIn .5s ${i*80}ms both var(--ease)">
+        <div class="facts">${v.ejemplo?'<span class="pill ex">Ejemplo</span>':""}${ds.map(k=>`<span class="pill div" style="--c:${DIVS[k].c}">${esc(DIVS[k].n)}</span>`).join("")}</div>
+        <h3>${esc(v.puesto)}</h3><p class="co">${esc(v.empresa)}${v.fecha?`<span class="pub num">Publicada el ${fFecha(v.fecha)}</span>`:""}</p>
+        ${v.sueldo?`<p class="pay num">${esc(v.sueldo)}</p>`:""}
+        ${pills?`<div class="facts">${pills}</div>`:""}
+        ${det?`<details class="vac-more"><summary>Ver detalles</summary><div class="vac-body">${det}</div></details>`:""}
+        <div class="vac-foot"><a class="btn btn-primary" href="mailto:bolsadetrabajo@utcancun.edu.mx?subject=${subj}&body=${body}" aria-label="Postularme a ${esc(v.puesto)}">Postularme</a><p class="note">Se abre tu correo con el asunto listo. Recuerda anexar tu CV.</p></div></article>`;
     }).join("") : `<div class="empty" style="grid-column:1/-1">No hay vacantes publicadas para esta división por ahora. Únete al canal de WhatsApp de Bolsa de Trabajo para enterarte primero.</div>`;
   };
   chips.addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;f=b.dataset.d;chips.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();});
