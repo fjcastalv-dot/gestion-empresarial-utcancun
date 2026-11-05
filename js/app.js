@@ -121,7 +121,7 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
         ${v.sueldo?`<p class="pay num">${esc(v.sueldo)}</p>`:""}
         ${pills?`<div class="facts">${pills}</div>`:""}
         ${det && !v.flyer?`<details class="vac-more"><summary>Ver detalles</summary><div class="vac-body">${det}</div></details>`:""}
-        <div class="vac-foot"><a class="btn btn-primary" href="mailto:bolsadetrabajo@utcancun.edu.mx?subject=${subj}&body=${body}" aria-label="Postularme a ${esc(v.puesto)}">Postularme</a><p class="note">Se abre tu correo con el asunto listo. Recuerda anexar tu CV.</p></div></div></article>`;
+        <div class="vac-foot"><a class="btn btn-primary" href="mailto:bolsadetrabajo@utcancun.edu.mx?subject=${subj}&body=${body}" aria-label="Postularme a ${esc(v.puesto)}">Postularme</a><p class="note">Se abre tu correo con el asunto listo. Recuerda anexar tu CV. <a href="#privacidad">Aviso de privacidad</a></p></div></div></article>`;
     }).join("") : `<div class="empty" style="grid-column:1/-1">No hay vacantes publicadas para esta división por ahora. Únete al canal de WhatsApp de Bolsa de Trabajo para enterarte primero.</div>`;
   };
   // Visor del cartel a pantalla completa
@@ -204,7 +204,7 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
 })();
 
 /* ================= NAVEGACIÓN ================= */
-const VIEWS=["inicio","estadias","bolsa","empresas","vincular","contacto"];
+const VIEWS=["inicio","estadias","bolsa","empresas","vincular","contacto","privacidad"];
 function show(name, scroll){
   if(!VIEWS.includes(name)) name="inicio";
   document.querySelectorAll(".view").forEach(v=>{const on=v.dataset.view===name; v.hidden=!on; v.classList.remove("enter"); if(on){void v.offsetWidth; v.classList.add("enter");}});
@@ -213,7 +213,7 @@ function show(name, scroll){
   $("#nav").classList.remove("open"); $("#burger").setAttribute("aria-expanded","false");
   if(name==="inicio" && window.__introCount) window.__introCount();
   if(scroll) window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
-  document.title = ({inicio:"Gestión Empresarial UT Cancún",estadias:"Estadías · Gestión Empresarial",bolsa:"Bolsa de trabajo · Gestión Empresarial",empresas:"Empresas vinculadas · Gestión Empresarial",vincular:"Vincular empresa · Gestión Empresarial",contacto:"Contáctanos · Gestión Empresarial"})[name];
+  document.title = ({inicio:"Gestión Empresarial UT Cancún",estadias:"Estadías · Gestión Empresarial",bolsa:"Bolsa de trabajo · Gestión Empresarial",empresas:"Empresas vinculadas · Gestión Empresarial",vincular:"Vincular empresa · Gestión Empresarial",contacto:"Contáctanos · Gestión Empresarial",privacidad:"Avisos de privacidad · Gestión Empresarial"})[name];
 }
 document.addEventListener("click", e=>{
   const a=e.target.closest('a[href^="#"]'); if(!a) return;
@@ -240,4 +240,13 @@ show(location.hash.slice(1)||"inicio",false);
   function setHidden(h){ top.classList.toggle("is-hidden",h); document.body.classList.toggle("header-hidden",h); }
   window.addEventListener("scroll",()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update); } },{passive:true});
   top.addEventListener("focusin",()=>setHidden(false));
+})();
+
+/* ================= AVISOS DE PRIVACIDAD: abrir / cerrar todos ================= */
+(function privacidad(){
+  const btn=$("#privToggle"); if(!btn) return;
+  const all=()=>[...document.querySelectorAll("details.priv")];
+  const sync=()=>{ btn.textContent = all().every(d=>d.open) ? "Cerrar todos" : "Abrir todos"; };
+  btn.addEventListener("click",()=>{ const open=!all().every(d=>d.open); all().forEach(d=>d.open=open); sync(); });
+  all().forEach(d=>d.addEventListener("toggle",sync));
 })();
