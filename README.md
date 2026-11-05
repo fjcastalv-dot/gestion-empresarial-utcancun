@@ -96,6 +96,8 @@ git push
 
 Para editar un archivo desde GitHub: ábrelo, haz clic en el ícono del lápiz (✏️ **Edit this file**), haz el cambio y guarda con **Commit changes**. El sitio se actualiza solo en 1 a 3 minutos.
 
+> 🔄 **Para que los cambios se vean de inmediato:** los navegadores guardan una copia de los archivos hasta por 10 minutos. Cada vez que edites un archivo de `css/` o `js/`, abre `index.html` y cambia el número de versión que aparece después de `?v=` (por ejemplo, `?v=20261105` → `?v=20261120`, con la fecha del día). Así cada visitante descarga la versión nueva.
+
 ### Publicar vacantes · `js/datos.js`
 Busca `const VACANTES` y reemplaza los ejemplos. Cada vacante lleva este formato:
 
