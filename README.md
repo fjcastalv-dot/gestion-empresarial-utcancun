@@ -5,7 +5,7 @@ Sitio web del Departamento de Gestión Empresarial de la Universidad Tecnológic
 - **Inicio:** acceso a las empresas vinculadas, la ruta de estadía en 10 pasos y la próxima fecha del calendario.
 - **Estadías:** qué es la estadía, las modalidades, el calendario, el checklist de seguimiento, los formatos y la agenda para descargar.
 - **Bolsa de trabajo:** las vacantes, con un botón de postulación que abre un correo ya redactado.
-- **Empresas vinculadas:** más de 1,000 empresas, con buscador y filtros por giro, ubicación y división, y el proceso para vincular una empresa nueva.
+- **Empresas vinculadas:** catálogo de 883 empresas vinculadas, con buscador y filtros por giro, ubicación y división, y el proceso para vincular una empresa nueva.
 - **Contáctanos:** los códigos QR de los canales de difusión y los contactos del departamento y de las divisiones.
 
 Es un sitio estático: solo usa HTML, CSS y JavaScript, sin servidor ni base de datos. Por eso se puede publicar gratis con **GitHub Pages**.
