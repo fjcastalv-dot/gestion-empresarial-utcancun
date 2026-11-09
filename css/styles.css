@@ -457,3 +457,5 @@ details.priv .body p{max-width:72ch;line-height:1.7;color:var(--ink);padding-lef
 .video-link{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;color:var(--green-ink);text-decoration:none}
 .video-link svg{width:14px;height:14px}
 .video-link:hover{text-decoration:underline}
+.video-frame.fb img{position:absolute;inset:0}
+.video-frame .fb-tag{z-index:1;background:rgba(26,38,64,.7)}
