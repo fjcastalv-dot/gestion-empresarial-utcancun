@@ -453,7 +453,8 @@ a.video-frame{display:block}
 
 /* Videos de Facebook: portada institucional */
 .video-frame.fb{background:radial-gradient(120% 90% at 85% 15%,rgba(57,190,163,.35),transparent 55%),radial-gradient(90% 80% at 10% 100%,rgba(162,227,197,.18),transparent 60%),#1A2640}
-.video-frame.fb .play{background:rgba(57,190,163,.9)}
+.video-frame.fb .play{inset:auto 14px 14px auto;margin:0;width:52px;height:52px;background:rgba(26,38,64,.82);z-index:1}
+.video-frame.fb .play svg{width:22px;height:22px}
 .video-frame.fb:hover .play{background:#00806C}
 .fb-tag{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.74rem;font-weight:600;letter-spacing:.02em}
 .fb-tag svg{width:14px;height:14px}
