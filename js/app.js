@@ -335,9 +335,11 @@ const fireworks=(function(){
 
 /* ================= VIDEOS DE EGRESADOS: se cargan al hacer clic ================= */
 document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-yt]"); if(!b) return;
+  const b=e.target.closest("[data-yt],[data-fb]"); if(!b) return;
   const f=document.createElement("iframe");
-  f.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;
+  f.src = b.dataset.yt
+    ? `https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`
+    : `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(b.dataset.fb)}&show_text=false&autoplay=true`;
   f.title=b.getAttribute("aria-label").replace("Reproducir video: ","");
   f.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
   f.allowFullscreen=true; f.className="video-iframe";
