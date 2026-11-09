@@ -12,6 +12,21 @@ const DIVS = {
   gas:{n:"Gastronomía",              c:"var(--div-gas)"}
 };
 /* Vacantes: reemplazar los ejemplos por vacantes reales. Deja el arreglo vacío [] si no hay vacantes. */
+/* ============ BENEFICIOS PARA LA COMUNIDAD UT (sección Egresados) ============
+   Cada beneficio lleva: empresa, tipo (Hospedaje, Compras, Salud, Restaurantes…), detalle (texto corto) y flyer (imagen en img/beneficios/).
+   Para quitar un beneficio vencido, borra su línea completa. */
+const BENEFICIOS = [
+  {empresa:"Ibis Cancún", tipo:"Hospedaje", detalle:"Tarifas con descuento desde el 15 %", flyer:"img/beneficios/ibis-cancun.jpg"},
+  {empresa:"City Express Junior Cancún", tipo:"Hospedaje", detalle:"Tarifa convenio desde $1,354.69 MXN", flyer:"img/beneficios/city-express-junior-1.jpg"},
+  {empresa:"City Express Junior Cancún", tipo:"Hospedaje", detalle:"Tarifa convenio desde $1,354.69 MXN", flyer:"img/beneficios/city-express-junior-2.jpg"},
+  {empresa:"City Express Cancún", tipo:"Hospedaje", detalle:"Tarifa convenio desde $1,629.36 MXN", flyer:"img/beneficios/city-express.jpg"},
+  {empresa:"Fairfield & Courtyard Cancún Airport", tipo:"Hospedaje", detalle:"Tarifas especiales con desayuno incluido", flyer:"img/beneficios/fairfield-courtyard.jpg"},
+  {empresa:"Residence Inn Cancún Hotel Zone", tipo:"Hospedaje", detalle:"Tarifa preferencial con desayuno incluido", flyer:"img/beneficios/residence-inn.jpg"},
+  {empresa:"Tiendas Assis", tipo:"Compras", detalle:"10 % de descuento + 10 % en monedero electrónico", flyer:"img/beneficios/tiendas-assis.jpg"},
+  {empresa:"Integra Rehabilitación", tipo:"Salud", detalle:"Descuentos en fisioterapia y valoración gratuita", flyer:"img/beneficios/integra-rehabilitacion.jpg"},
+  {empresa:"Mr. Pampas", tipo:"Restaurantes", detalle:"Rodizio adulto a $399", flyer:"img/beneficios/mr-pampas.jpg"}
+];
+
 /* Vacantes publicadas. Campos:
    puesto, empresa  → obligatorios
    div              → división o divisiones afines: "eca", "ing", "tur", "gas" (una o varias entre corchetes)

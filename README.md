@@ -110,6 +110,15 @@ Busca `const VACANTES` y reemplaza los ejemplos. Cada vacante lleva este formato
 - Si no hay vacantes, deja el arreglo vacío: `const VACANTES = [];`. La página mostrará un aviso.
 - El botón **Postularme** abre un correo a bolsadetrabajo@utcancun.edu.mx con el asunto "Postulación para vacante [puesto]" y el texto de autorización para compartir el CV.
 
+### Beneficios para la comunidad UT · `js/datos.js`
+Los carteles se muestran en la sección **Egresados**. Para agregar uno, sube la imagen a `img/beneficios/` y añade una línea en `const BENEFICIOS`:
+
+```js
+{empresa:"Nombre de la empresa", tipo:"Hospedaje", detalle:"Texto corto del beneficio", flyer:"img/beneficios/archivo.jpg"},
+```
+
+Cuando un beneficio venza, borra su línea completa.
+
 ### Cambiar la agenda de actividades
 1. Sube el nuevo PDF a la carpeta `docs/`, con **Add file → Upload files** dentro de esa carpeta.
 2. En `js/datos.js`, cambia el nombre del archivo en `const AGENDA_URL`.

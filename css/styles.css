@@ -461,3 +461,14 @@ a.video-frame{display:block}
 .video-link:hover{text-decoration:underline}
 .video-frame.fb img{position:absolute;inset:0}
 .video-frame .fb-tag{z-index:1;background:rgba(26,38,64,.7)}
+
+/* Beneficios para la comunidad UT */
+.benef-grid{grid-template-columns:repeat(3,1fr)}
+.benef{display:grid;align-content:start;border-radius:16px;overflow:hidden;background:var(--surface,#fff);border:1px solid var(--line);border-top:4px solid var(--green);transition:transform .35s var(--ease),box-shadow .35s}
+.benef:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(26,38,64,.35)}
+.benef-info{display:grid;gap:4px;padding:14px 16px 16px}
+.benef-info h3{font-size:1.02rem}
+.benef-info p{font-size:.88rem;color:var(--muted)}
+.benef-tipo{justify-self:start;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--green-ink);background:var(--mist);padding:3px 10px;border-radius:999px}
+@media (max-width:900px){.benef-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.benef-grid{gap:10px}.benef .flyer{padding:8px}.benef-info{padding:10px 12px 12px}.benef-info h3{font-size:.92rem}.benef-info p{font-size:.8rem}}

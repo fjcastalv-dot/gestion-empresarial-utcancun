@@ -148,7 +148,7 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
   };
   // Visor del cartel a pantalla completa
   const lb=$("#lightbox"), lbImg=$("#lbImg"), lbCap=$("#lbCap");
-  $("#vacList").addEventListener("click",e=>{
+  document.addEventListener("click",e=>{
     const b=e.target.closest("[data-flyer]"); if(!b) return;
     lbImg.src=b.dataset.flyer; lbImg.alt="Cartel: "+b.dataset.cap; lbCap.textContent=b.dataset.cap;
     if(lb.showModal){ lb.showModal(); } else { window.open(b.dataset.flyer,"_blank","noopener"); }
@@ -345,3 +345,12 @@ document.addEventListener("click",e=>{
   f.allowFullscreen=true; f.className="video-iframe";
   b.replaceWith(f);
 });
+
+/* ================= BENEFICIOS ================= */
+(function beneficios(){
+  const box=document.getElementById("benefList"); if(!box || typeof BENEFICIOS==="undefined") return;
+  box.innerHTML=BENEFICIOS.map((b,i)=>`<article class="benef" style="animation:fadeIn .5s ${i*70}ms both var(--ease)">
+    <button class="flyer" type="button" data-flyer="${esc(b.flyer)}" data-cap="${esc(b.empresa)} · ${esc(b.detalle)}" aria-label="Ampliar cartel: ${esc(b.empresa)}"><img src="${esc(b.flyer)}" alt="Cartel del beneficio de ${esc(b.empresa)}" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>Ampliar</span></button>
+    <div class="benef-info"><span class="benef-tipo">${esc(b.tipo)}</span><h3>${esc(b.empresa)}</h3><p>${esc(b.detalle)}</p></div>
+  </article>`).join("");
+})();
