@@ -463,7 +463,10 @@ a.video-frame{display:block}
 .video-frame .fb-tag{z-index:1;background:rgba(26,38,64,.7)}
 
 /* Beneficios para la comunidad UT */
-.benef-grid{grid-template-columns:repeat(3,1fr)}
+.benef-grid{grid-template-columns:repeat(3,1fr);align-items:start}
+.benef.wide .flyer{aspect-ratio:var(--ar,16/9)}
+.benef.wide .flyer{padding:0}
+.benef.wide .flyer img{border-radius:0}
 .benef{display:grid;align-content:start;border-radius:16px;overflow:hidden;background:var(--surface,#fff);border:1px solid var(--line);border-top:4px solid var(--green);transition:transform .35s var(--ease),box-shadow .35s}
 .benef:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(26,38,64,.35)}
 .benef-info{display:grid;gap:4px;padding:14px 16px 16px}

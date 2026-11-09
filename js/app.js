@@ -353,4 +353,8 @@ document.addEventListener("click",e=>{
     <button class="flyer" type="button" data-flyer="${esc(b.flyer)}" data-cap="${esc(b.empresa)} · ${esc(b.detalle)}" aria-label="Ampliar cartel: ${esc(b.empresa)}"><img src="${esc(b.flyer)}" alt="Cartel del beneficio de ${esc(b.empresa)}" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>Ampliar</span></button>
     <div class="benef-info"><span class="benef-tipo">${esc(b.tipo)}</span><h3>${esc(b.empresa)}</h3><p>${esc(b.detalle)}</p></div>
   </article>`).join("");
+  // Detecta si el cartel es horizontal o vertical y ajusta la tarjeta a su formato
+  const fit=img=>{ if(!img.naturalWidth) return; const card=img.closest(".benef"); const r=img.naturalWidth/img.naturalHeight;
+    const wide=r>1.1; card.classList.toggle("wide", wide); if(wide) card.style.setProperty("--ar", r.toFixed(4)); };
+  box.querySelectorAll(".flyer img").forEach(img=>{ if(img.complete) fit(img); else img.addEventListener("load",()=>fit(img),{once:true}); });
 })();
