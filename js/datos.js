@@ -69,7 +69,7 @@ const STEPS = [
   {n:"4", t:"Haz tu registro de estadía", s:"2027-01-07", e:"2027-01-22", w:"7 – 22 ene", d:"Captura tus datos, los de la empresa, tu asesor empresarial y la modalidad."},
   {n:"5", t:"Entrega tu carta de presentación", s:"2027-01-07", e:"2027-01-22", w:"7 – 22 ene", d:"En Gestión Empresarial, Edificio D, de 8:00 a 17:00\u00A0h. Original y copia, firmada, sellada y con el nombre del responsable."},
   {m:true, t:"Límite para cambio de empresa y documentos de estadía foránea", s:"2027-01-18", e:"2027-01-18", w:"18 ene 2027"},
-  {n:"6", t:"Responde las encuestas de egresados", s:"2027-03-16", e:"2027-03-19", w:"16 – 19 mar", d:"Registro y actualización de datos de egresados, y encuesta de satisfacción. Ambas obligatorias."},
+  {n:"6", t:"Responde las encuestas de egresados", s:"2027-03-16", e:"2027-03-19", w:"16 – 19 mar", link:["#egresados","Ir a las encuestas"], d:"Registro y actualización de datos de egresados, y encuesta de satisfacción. Ambas obligatorias."},
   {n:"7", t:"Entrega documentos en tu división", w:"Fecha que indique tu división", d:"Entrega los documentos que solicite tu división académica en la fecha y horario que te indiquen."},
   {n:"8", t:"Evaluación académica", w:"Fecha que indique tu división", d:"Pide el formato a tu asesor académico, dáselo a tu asesor empresarial para que lo califique y firme, y regrésalo."},
   {n:"9", t:"Pide tu carta de liberación", s:"2027-03-31", e:"2027-03-31", w:"A más tardar 31 mar", d:"Dirigida al Lic. Carlos Antonio Peraza Magaña. Debe incluir tu nombre completo, carrera y matrícula, periodo, área asignada y total de horas. Con fecha de la última semana de marzo en adelante."},

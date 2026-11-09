@@ -226,7 +226,7 @@ document.querySelectorAll("[data-fecha-lista]").forEach(el => el.textContent = F
 })();
 
 /* ================= NAVEGACIÓN ================= */
-const VIEWS=["inicio","estadias","bolsa","empresas","vincular","contacto","privacidad"];
+const VIEWS=["inicio","estadias","bolsa","egresados","empresas","vincular","contacto","privacidad"];
 function show(name, scroll){
   if(!VIEWS.includes(name)) name="inicio";
   document.querySelectorAll(".view").forEach(v=>{const on=v.dataset.view===name; v.hidden=!on; v.classList.remove("enter"); if(on){void v.offsetWidth; v.classList.add("enter");}});
@@ -235,7 +235,7 @@ function show(name, scroll){
   $("#nav").classList.remove("open"); $("#burger").setAttribute("aria-expanded","false");
   if(name==="inicio" && window.__introCount) window.__introCount();
   if(scroll) window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
-  document.title = ({inicio:"Gestión Empresarial UT Cancún",estadias:"Estadías · Gestión Empresarial",bolsa:"Bolsa de trabajo · Gestión Empresarial",empresas:"Empresas vinculadas · Gestión Empresarial",vincular:"Vincular empresa · Gestión Empresarial",contacto:"Contáctanos · Gestión Empresarial",privacidad:"Avisos de privacidad · Gestión Empresarial"})[name];
+  document.title = ({inicio:"Gestión Empresarial UT Cancún",estadias:"Estadías · Gestión Empresarial",bolsa:"Bolsa de trabajo · Gestión Empresarial",empresas:"Empresas vinculadas · Gestión Empresarial",vincular:"Vincular empresa · Gestión Empresarial",contacto:"Contáctanos · Gestión Empresarial",privacidad:"Avisos de privacidad · Gestión Empresarial",egresados:"Seguimiento de egresados · Gestión Empresarial"})[name];
 }
 document.addEventListener("click", e=>{
   const a=e.target.closest('a[href^="#"]'); if(!a) return;
@@ -332,3 +332,14 @@ const fireworks=(function(){
   addEventListener("resize",()=>{ if(raf) size(); });
   return {start,stop};
 })();
+
+/* ================= VIDEOS DE EGRESADOS: se cargan al hacer clic ================= */
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-yt]"); if(!b) return;
+  const f=document.createElement("iframe");
+  f.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;
+  f.title=b.getAttribute("aria-label").replace("Reproducir video: ","");
+  f.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  f.allowFullscreen=true; f.className="video-iframe";
+  b.replaceWith(f);
+});

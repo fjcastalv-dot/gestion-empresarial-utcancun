@@ -430,3 +430,20 @@ details.priv .body p{max-width:72ch;line-height:1.7;color:var(--ink);padding-lef
 @keyframes celDraw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.cel-badge circle,.cel-badge path{stroke-dashoffset:0}}
 #peopleGE{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+
+/* Inicio: 5 accesos en una fila */
+.doors{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
+/* Seguimiento de egresados: videos */
+.videos{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.video{display:grid;gap:10px;align-content:start}
+.video p{font-size:.92rem;font-weight:500;line-height:1.4}
+.video-frame,.video-iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;overflow:hidden;background:#1A2640}
+.video-frame{position:relative;padding:0;cursor:pointer}
+.video-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease),opacity .3s}
+.video-frame:hover img{transform:scale(1.04);opacity:.92}
+.video-frame .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(26,38,64,.82);display:grid;place-items:center;transition:transform .35s var(--ease),background .3s}
+.video-frame:hover .play{transform:scale(1.1);background:#00806C}
+.video-frame .play svg{width:28px;height:28px;fill:#fff;margin-left:3px}
+.door{align-content:start}
+.door{grid-template-rows:auto auto 1fr auto}
+.door .go{align-self:end}
